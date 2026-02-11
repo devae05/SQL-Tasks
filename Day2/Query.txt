@@ -1,0 +1,60 @@
+-- 1. create table for Student,staff,product,customer,Employee
+-- 2.  Do all create ,alter,drop/select,insert,update,delete operations
+
+create database day1;
+use day1;
+set sql_safe_updates=0;
+
+-- student
+desc student;
+create table Student(rollno int,name varchar(50),std varchar(5));
+insert into Student values(101,"Kisore",'7th');
+insert into Student values(102,"Ram",'9th');
+insert into Student values(103,"Kenny",'8th');
+insert into Student values(104,"Joe",'12th');
+alter table student modify name varchar(20);
+alter table student add age int;
+alter table student drop city;
+delete from student where rollno=104; 
+update student set age=18 where rollno=103;
+select * from Student;
+
+-- staff
+desc staff;
+create table staff(id int,name varchar(20),dept varchar(20));
+alter table staff add city varchar(20);
+insert into staff values(1001,"Kumar","Cloud","Chennai");
+insert into staff values(1004,"Mani","Network","Trichy");
+select * from staff;
+
+-- product
+desc product;
+create table product(name varchar(30),price int);
+insert into product values("Pasta",300);
+insert into product values("Carrot",30);
+insert into product values("Milk",20);
+insert into product values("Butter",150);
+select * from product;
+select name from product;
+
+-- customer 
+desc customer;
+create table customer(name varchar(50),mobile_no int,points int);
+alter table customer modify name varchar(20);
+alter table customer rename column mobile_no to phone_no;
+insert into customer values("Josee","1234567890",5000);
+insert into customer values("Nithya","4321567890",3000);
+insert into customer values("Dev",4321567890,3000);
+alter table customer modify phone_no varchar(10); 
+select * from customer;
+
+-- employee
+create table employee(name varchar(20),dept varchar(20),salary int);
+insert into employee values("Kumar","Cloud",40000);
+insert into employee values("Mani","Network",30000);
+update employee set dept="Digital Marketing" where name="kumar";
+update employee set name="Kishore" where dept="network";
+alter table employee add id int;
+update employee set id=101 where name = "kishore";
+update employee set id=106 where dept= "digital marketing";
+select * from employee;
