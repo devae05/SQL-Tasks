@@ -1,0 +1,54 @@
+create schema day2;
+use day2;
+set sql_safe_updates=0;
+
+create table Marks(stud_id int auto_increment primary key,Student_name varchar(20),marks int)auto_increment=401;
+insert into Marks(student_name,marks) values
+("Richard",88),
+("Rammesh",94),
+("Araragi",72),
+("Hiitagi",99),
+("Kaisen",86),
+("KSI",67);
+
+insert into marks(student_name,marks) values ("PR",90),("Gilgamesh",56);
+insert into marks(student_name,marks) values ("John",60);
+
+select * from Marks where marks > 90;
+select * from Marks where marks<=70;
+select * from marks where marks<>88;
+select * from marks where marks!=86;
+
+select *,"Distinction" as Result from marks where marks between 90 and 100;
+select *,"Redo" as Result from marks where marks not between 60 and 100;
+
+alter table marks modify Specialization varchar(30);
+select count(*) from marks;
+update Marks
+set specialization = case stud_id
+    when 401 then 'Bio Engineering'
+    when 402 then 'Civil'
+    when 403 then 'Politics'
+    when 404 then 'Physical Health'
+    when 405 then 'Tamil'
+    when 406 then null
+    when 407 then 'Food Science'
+    when 408 then 'Environmental Science'
+    when 409 then null
+end
+where stud_id between 401 and 407;
+
+select * from marks where specialization in ("Politics","Tamil");
+select * from marks where specialization not in ("Physical health","Food Science");
+
+select * from marks where specialization is null;
+select * from marks where specialization is not null;
+select * from marks where stud_id >= 405 and specialization != "food science";
+
+select * from marks where student_name like "j___";
+select * from marks where student_name like "r%";
+select * from marks where student_name like "%i";
+select * from marks where student_name like "_a%";
+select * from marks where student_name like "%i%i%";
+
+select * from marks;
