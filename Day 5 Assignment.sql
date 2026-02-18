@@ -69,16 +69,16 @@ where customerID is null;
 
 -- 8.Generate a list of all possible combinations between Customers and Products (Cartesian product).
 
-SELECT Customers.CustomerName, Products.ProductName
-FROM Customers
-CROSS JOIN Products;
+select Customers.CustomerName, Products.ProductName
+from Customers
+cross join Products;
 
 -- 9.Suppose you added a ManagerID to the Customers table; how would you join the table to itself to show each customer and their manager's name?
 
-SELECT Customers.CustomerName AS Customer, Manager.CustomerName AS Manager
-FROM Customers 
-LEFT JOIN Customers 
-ON Customers.ManagerID = Manager.CustomerID	;
+select Customers.CustomerName as Customer, Manager.CustomerName as Manager
+from Customers 
+left join Customers 
+on Customers.ManagerID = Manager.CustomerID	;
 
 -- 10. List the names of customers from 'New York' who ordered more than 1 item in a single order, along with the product name.
 
