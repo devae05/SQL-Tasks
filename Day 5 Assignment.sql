@@ -82,8 +82,6 @@ on Customers.ManagerID = Manager.CustomerID	;
 
 -- 10. List the names of customers from 'New York' who ordered more than 1 item in a single order, along with the product name.
 
--- 10. Customers from New York who ordered more than 1 item in a single order, with product name
-
 select Customers.CustomerName, Products.ProductName
 from Customers 
 inner join Orders 
