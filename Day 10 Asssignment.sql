@@ -1,4 +1,4 @@
-use day7;
+use day10;
 
 CREATE TABLE employees (
     emp_id INT PRIMARY KEY,
